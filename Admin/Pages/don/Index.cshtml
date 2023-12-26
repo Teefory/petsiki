@@ -1,0 +1,69 @@
+﻿@page
+@model petsk.Pages.don.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    body {
+        background: pink;
+    }
+</style>
+<center>
+    <h1>Все донаты</h1>
+</center>
+@* <p>
+    <a asp-page="Create">Create New</a>
+</p> *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Donation[0].Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Donation[0].Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Donation[0].IdCollectingNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Donation[0].IdUserNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Donation)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCollectingNavigation.DescriptionC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUserNavigation.Name)
+                </td>
+                 <td>
+            <a asp-page="./Edit" asp-route-id="@item.IdDonation">Изменить</a> |
+           @*  <a asp-page="./Details" asp-route-id="@item.IdDonation">Детали</a> | *@
+            <a asp-page="./Delete" asp-route-id="@item.IdDonation">Удалить</a>
+            </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<div class="row">
+    <div class="card col-md-12">
+        <button type="button" onclick="location.href = '/don/Create'" class="btn btn-outline-success">Отправить донат</button>
+    </div>
+</div>

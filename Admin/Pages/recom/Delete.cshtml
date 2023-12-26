@@ -1,0 +1,53 @@
+﻿@page
+@model petsk.Pages.recom.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Удалить</h1>
+
+<h3>Вы уверены, что хотите удалить это?</h3>
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RecordingWalk.DataR)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RecordingWalk.DataR)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RecordingWalk.BeginWalk)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RecordingWalk.BeginWalk)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RecordingWalk.EndWalk)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RecordingWalk.EndWalk)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RecordingWalk.IdPetNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RecordingWalk.IdPetNavigation.IdPet)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RecordingWalk.IdUserNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RecordingWalk.IdUserNavigation.IdUser)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="RecordingWalk.IdUser" />
+        <input type="hidden" asp-for="RecordingWalk.IdPet" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-page="./Index">Назад</a>
+    </form>
+</div>

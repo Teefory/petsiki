@@ -1,0 +1,62 @@
+﻿@page
+@model petsk.Pages.exp.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Изменить данные расходов</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Expense.IdExpenses" />
+            <div class="form-group">
+                <label asp-for="Expense.TypeExpense" class="control-label"></label>
+                <input asp-for="Expense.TypeExpense" class="form-control" />
+                <span asp-validation-for="Expense.TypeExpense" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense.Quantity" class="control-label"></label>
+                <input asp-for="Expense.Quantity" class="form-control" />
+                <span asp-validation-for="Expense.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense.AmountSpent" class="control-label"></label>
+                <input asp-for="Expense.AmountSpent" class="form-control" />
+                <span asp-validation-for="Expense.AmountSpent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense.Data" class="control-label"></label>
+                <input asp-for="Expense.Data" class="form-control" />
+                <span asp-validation-for="Expense.Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense.Photo" class="control-label"></label>
+                <input asp-for="Expense.Photo" class="form-control" />
+                <span asp-validation-for="Expense.Photo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense.IdCollecting" class="control-label"></label>
+                <select asp-for="Expense.IdCollecting" class="form-control" asp-items="ViewBag.IdCollecting"></select>
+                <span asp-validation-for="Expense.IdCollecting" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,67 @@
+﻿@page
+@model petsiki.Pages.us.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Patronymic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Login)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Password)
+            </th>
+           @*  <th>
+                @Html.DisplayNameFor(model => model.User[0].Rol)
+            </th> *@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.User)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patronymic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Login)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                @* <td>
+            @Html.DisplayFor(modelItem => item.Rol)
+            </td> *@
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.IdUser">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.IdUser">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.IdUser">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

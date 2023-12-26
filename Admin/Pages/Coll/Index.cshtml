@@ -1,0 +1,170 @@
+﻿@* using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls; *@
+@page
+@model petsk.Pages.Coll.IndexModel
+
+@* @{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p> *@
+
+<h1 class="display-4">Фонд помощи бездомным питомцам </h1>
+<h1 class="display-5">Сделай мир еще на капельку добрее</h1>
+
+
+@*                 @page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+} *@
+<div class="impp">
+    <img src='https://get.wallhere.com/photo/dog-animals-1276147.jpg' class="home-image">
+</div>
+
+<div class="text-center">
+    
+</div>
+
+
+
+<div>
+    <h1 class="display-5">Все сборы </h1>
+
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.Collecting[0].DescriptionC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Collecting[0].RequiredAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Collecting[0].AlreadyAssembled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Collecting[0].OpeningDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Collecting[0].ClosingDate)
+            </th>
+         @*    <th>
+                @Html.DisplayNameFor(model => model.Collecting[0].IdPetNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Collecting[0].IdShelterNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Collecting[0].IdUserNavigation)
+            </th> *@
+            <th></th>
+        </tr>
+    </thead>
+ 
+    <tbody>
+        @foreach (var item in Model.Collecting)
+        {  
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescriptionC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequiredAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AlreadyAssembled)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OpeningDate)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClosingDate)
+                    </td>
+                    @* <td>
+                    @Html.DisplayFor(modelItem => item.IdPetNavigation.IdPet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdShelterNavigation.IdShelter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUserNavigation.IdUser)
+                </td> *@
+                     <td>
+                    <a asp-page="./Edit" asp-route-id="@item.IdCollecting">Изменить</a> |
+                   @*  <a asp-page="./Details" asp-route-id="@item.IdCollecting">Детали</a> | *@
+                    <a asp-page="./Delete" asp-route-id="@item.IdCollecting">Удалить</a>
+                </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<div class="row">
+    <div class="card col-md-12">
+        <button type="button" onclick="location.href = '/coll/Create'" class="btn btn-outline-success">Создать новый сбор</button>
+    </div>
+</div>
+
+<div>
+    <h1 class="display-5">Немного информации о нас </h1>
+  
+</div>
+
+
+
+<div id="content-vw">
+   @*  <img class="page-image" src="http://daridobrokirov.ru/wp-content/uploads/2019/04/ДД.jpg"> *@
+    <hr>
+ 
+    <h3>Кто мы?</h3><p>Мы группа добровольцев, в свободное время помогающих бездомным животным. Большую часть времени мы проводим на работе и учебе, как обычные люди.</p>
+    <div class="text1" >
+		<h3>Что мы делаем?</h3>
+		<p>По мере своих сил мы спасаем бездомных животных, чаще всего это пострадавшие в автоавариях и от рук человека. Мы подбираем их на своем пути и, по возможности, помогаем всем звонящим в решении сложных вопросов.</p>
+    </div>
+    
+    <h3>Кто нам помогает?</h3>
+    <p>У нас нет и никогда не было никакой государственной поддержки. Все лечение осуществляется за счет собранных пожертвований, которые люди приносят прямо в клиники, переводят на наш расчетный счет. У нас нет и не было помещения, мы пользуемся стационарами ветеринарных клиник, если есть свободные места, и берем найденных животных в свои квартиры, поэтому безгранично забирать к себе животных мы не можем.</p>
+    <h3>Чем мы можем вам помочь?</h3>
+    <p>Мы вам расскажем как поступить, если вы нашли покалеченное животное. Мы поможем решить вопрос по оплате лечения бездомного животного. Всегда поможем советом и информационной помощью для пристройства!</p>
+    <h3>Как можно нам помочь?</h3>
+    <p>— кормом, кашами, мясными субпродуктами</p>
+    <p>— поводки, ошейники часто рвутся и теряются, их всегда не хватает</p>
+    <p>— расклейка объявлений и подача объявлений в газеты</p>
+    <p>— прогулками с животными на стационаре, также им можно приносить еду,</p>
+    <p>— рассказать друзьям, быть именно вашему другу нужна собака или кошка,</p>
+    <p>— материальная помощь.</p>
+   
+    <div class="clearfix"></div>
+</div>
+@* 
+<div class="container">
+<div class="row">
+    <div class="col">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Сборы</span>
+            </h4>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2"> </label>
+                <select multiple class="form-control" id="exampleFormControlSelect2">
+                 
+                </select>
+        </div>
+    </div>
+</div>
+</div> *@
+
+

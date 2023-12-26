@@ -1,0 +1,72 @@
+﻿@page
+@model petsiki.Pages.Coll.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Collecting</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Collecting.IdCollecting" />
+            <div class="form-group">
+                <label asp-for="Collecting.DescriptionC" class="control-label"></label>
+                <input asp-for="Collecting.DescriptionC" class="form-control" />
+                <span asp-validation-for="Collecting.DescriptionC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Collecting.RequiredAmount" class="control-label"></label>
+                <input asp-for="Collecting.RequiredAmount" class="form-control" />
+                <span asp-validation-for="Collecting.RequiredAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Collecting.AlreadyAssembled" class="control-label"></label>
+                <input asp-for="Collecting.AlreadyAssembled" class="form-control" />
+                <span asp-validation-for="Collecting.AlreadyAssembled" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Collecting.OpeningDate" class="control-label"></label>
+                <input asp-for="Collecting.OpeningDate" class="form-control" />
+                <span asp-validation-for="Collecting.OpeningDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Collecting.ClosingDate" class="control-label"></label>
+                <input asp-for="Collecting.ClosingDate" class="form-control" />
+                <span asp-validation-for="Collecting.ClosingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Collecting.IdPet" class="control-label"></label>
+                <select asp-for="Collecting.IdPet" class="form-control" asp-items="ViewBag.IdPet"></select>
+                <span asp-validation-for="Collecting.IdPet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Collecting.IdShelter" class="control-label"></label>
+                <select asp-for="Collecting.IdShelter" class="form-control" asp-items="ViewBag.IdShelter"></select>
+                <span asp-validation-for="Collecting.IdShelter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Collecting.IdUser" class="control-label"></label>
+                <select asp-for="Collecting.IdUser" class="form-control" asp-items="ViewBag.IdUser"></select>
+                <span asp-validation-for="Collecting.IdUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,58 @@
+﻿@page
+@model petsiki.Pages.pe.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Pet</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Pet.Nickname" class="control-label"></label>
+                <input asp-for="Pet.Nickname" class="form-control" />
+                <span asp-validation-for="Pet.Nickname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pet.DateOfBirth" class="control-label"></label>
+                <input asp-for="Pet.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Pet.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pet.DescriptionP" class="control-label"></label>
+                <input asp-for="Pet.DescriptionP" class="form-control" />
+                <span asp-validation-for="Pet.DescriptionP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pet.MedicalInformation" class="control-label"></label>
+                <input asp-for="Pet.MedicalInformation" class="form-control" />
+                <span asp-validation-for="Pet.MedicalInformation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @* <label asp-for="Pet.IdShelter" class="control-label"></label>
+                <select asp-for="Pet.IdShelter" class ="form-control" asp-items="ViewBag.IdShelter"></select> *@
+                <label asp-for="Pet.IdShelter" class="control-label"></label>
+                <input asp-for="Pet.IdShelter" class="form-control" />
+                <span asp-validation-for="Pet.IdShelter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,71 @@
+﻿@page
+@model petsiki.Pages.don.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Отправить донат</h1>
+
+
+@* <style @* class="img-10" >
+    body {
+            background: url('https://zooblog.ru/uploads/posts/2013-04/1366632333_zhivotnye-mira-16.jpg' )no-repeat center center fixed;
+    }
+</style> *@
+
+@* <h4>Donation</h4> *@
+
+<style>
+    body {
+        background: pink;
+    }
+</style>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @* <div class="form-group">
+            <label asp-for="Donation.Data" class="control-label"></label>
+            <input asp-for="Donation.Data" class="form-control" />
+            <span asp-validation-for="Donation.Data" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="Donation.Amount" class="control-label"></label>
+                <input asp-for="Donation.Amount" class="form-control" />
+                <span asp-validation-for="Donation.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Donation.IdUserNavigation" class="control-label"></label>
+                <select asp-for="Donation.IdUser" class="form-control" asp-items="@Model.UserNameSL">
+                    <option value="">-- Выберите Пользователя --</option>
+                </select>
+                <span asp-validation-for="Donation.IdUser" class="text-danger" />
+
+            </div>
+            <div class="form-group">
+                @*  <label asp-for="Donation.IdCollecting" class="control-label"></label>
+                <select asp-for="Donation.IdCollecting" class ="form-control" asp-items="ViewBag.IdCollecting"></select> *@
+                <label asp-for="Donation.IdCollectingNavigation" class="control-label"></label>
+                <select asp-for="Donation.IdCollecting" class="form-control" asp-items="@Model.CollectingNameSL">
+                    <option value="">-- Выберите Сбор --</option>
+                </select>
+                <span asp-validation-for="Donation.IdCollecting" class="text-danger" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

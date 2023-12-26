@@ -1,0 +1,187 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = petsiki
+build_property.RootNamespace = petsiki
+build_property.ProjectDir = C:\Users\1\Desktop\petsiki\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\1\Desktop\petsiki
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/1/Desktop/petsiki/Pages/Coll/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29sbFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/Coll/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29sbFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/Coll/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29sbFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/Coll/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29sbFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/Coll/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29sbFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/don/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZG9uXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/don/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZG9uXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/don/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZG9uXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/don/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZG9uXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/don/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZG9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/exp/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZXhwXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/exp/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZXhwXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/exp/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZXhwXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/exp/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZXhwXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/exp/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZXhwXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/pe/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/pe/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccGVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/pe/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccGVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/pe/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccGVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/pe/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/recom/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccmVjb21cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/recom/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccmVjb21cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/recom/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccmVjb21cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/recom/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccmVjb21cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/recom/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccmVjb21cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/shel/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc2hlbFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/shel/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc2hlbFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/shel/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc2hlbFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/shel/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc2hlbFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/shel/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc2hlbFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/us/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcdXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/us/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcdXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/us/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcdXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/us/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcdXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/us/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcdXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1/Desktop/petsiki/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-mpbw0edk5z

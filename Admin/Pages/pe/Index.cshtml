@@ -1,0 +1,61 @@
+﻿@page
+@model petsk.Pages.pe.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].IdShelterNavigation.IdShelter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].DescriptionP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].MedicalInformation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].IdShelterNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Pet)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nickname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescriptionP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MedicalInformation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdShelterNavigation.IdShelter)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.IdPet">Edit</a> |
+                   @*  <a asp-page="./Details" asp-route-id="@item.IdPet">Details</a> | *@
+                    <a asp-page="./Delete" asp-route-id="@item.IdPet">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

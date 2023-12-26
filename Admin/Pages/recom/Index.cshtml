@@ -1,0 +1,140 @@
+﻿@page
+@model petsk.Pages.recom.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Запись на прогулку</h1>
+<style>
+    body {
+        background: pink;
+    }
+</style>
+@* <p>
+    <a asp-page="Create">Создать новую запись</a>
+</p> *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordingWalk[0].DataR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordingWalk[0].BeginWalk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordingWalk[0].EndWalk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordingWalk[0].IdPetNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordingWalk[0].IdUserNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.RecordingWalk)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataR)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeginWalk)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndWalk)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdPetNavigation.Nickname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUserNavigation.Name)
+                </td>
+                <td>
+            @* @Html.ActionLink("Edit", "Edit", new { id=item.IdPetNavigation }) | 
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
+                    <a asp-page="./Edit" asp-route-id="@item.IdPet">Edit</a> |
+                    @* <a asp-page="./Details" asp-route-id="@item.IdPet">Details</a> | *@
+                    <a asp-page="./Delete" asp-route-id="@item.IdPet">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="row">
+    <div class="card col-md-12">
+        <button type="button" onclick="location.href = '/recom/Create'" class="btn btn-outline-success">Создать новую запись </button>
+    </div>
+</div>
+
+<h1>Информация о питомцах</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @* @Html.DisplayNameFor(model => model.RecordingWalk[0].DataR) *@
+                Имя питомца
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.RecordingWalk[0].BeginWalk) *@
+                Дата рождения
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.RecordingWalk[0].EndWalk) *@
+                Описание
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.RecordingWalk[0].IdPetNavigation) *@
+                Мед. сведения
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.RecordingWalk[0].IdUserNavigation) *@
+                Адрес
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Pets)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nickname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescriptionP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MedicalInformation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdShelterNavigation.Address)
+                </td>
+                <td>
+                   @*   @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
+
+                      <a asp-page="/pe/Edit" asp-route-id="@item.IdPet"  asp-route-date="@item.IdPet">Изменить</a> |
+                    <a asp-page="/pe/Delete" asp-route-id="@item.IdPet">Удалить</a>
+               @*  <a asp-page="/pe/Details" asp-route-id="@item.IdPet">Детали</a>  *@
+                
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="row">
+    <div class="card col-md-12">
+        <button type="button" onclick="location.href = '/pe/Create'" class="btn btn-outline-success">Добавить питомца</button>
+    </div>
+</div>

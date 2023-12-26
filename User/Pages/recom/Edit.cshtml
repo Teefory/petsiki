@@ -1,0 +1,46 @@
+﻿@page
+@model petsiki.Pages.recom.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>RecordingWalk</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RecordingWalk.IdPet" />
+            <input type="hidden" asp-for="RecordingWalk.DataR" />
+            <div class="form-group">
+                <label asp-for="RecordingWalk.IdUser" class="control-label"></label>
+                <select asp-for="RecordingWalk.IdUser" class="form-control" asp-items="ViewBag.IdUser"></select>
+                <span asp-validation-for="RecordingWalk.IdUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecordingWalk.BeginWalk" class="control-label"></label>
+                <input asp-for="RecordingWalk.BeginWalk" class="form-control" />
+                <span asp-validation-for="RecordingWalk.BeginWalk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecordingWalk.EndWalk" class="control-label"></label>
+                <input asp-for="RecordingWalk.EndWalk" class="form-control" />
+                <span asp-validation-for="RecordingWalk.EndWalk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

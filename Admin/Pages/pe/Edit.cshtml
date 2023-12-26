@@ -1,0 +1,61 @@
+﻿@page
+@model petsk.Pages.pe.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Изменить данные питомцев</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Pet.IdPet" />
+            <div class="form-group">
+                <label asp-for="Pet.Nickname" class="control-label"></label>
+                <input asp-for="Pet.Nickname" class="form-control" />
+                <span asp-validation-for="Pet.Nickname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pet.DateOfBirth" class="control-label"></label>
+                <input asp-for="Pet.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Pet.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pet.DescriptionP" class="control-label"></label>
+                <input asp-for="Pet.DescriptionP" class="form-control" />
+                <span asp-validation-for="Pet.DescriptionP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pet.MedicalInformation" class="control-label"></label>
+                <input asp-for="Pet.MedicalInformation" class="form-control" />
+                <span asp-validation-for="Pet.MedicalInformation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @* <label asp-for="Pet.IdShelter" class="control-label"></label>
+                <select asp-for="Pet.IdShelter" class="form-control" asp-items="ViewBag.IdShelter"></select>
+                <span asp-validation-for="Pet.IdShelter" class="text-danger"></span> *@
+                <label asp-for="Pet.IdShelterNavigation" class="control-label"></label>
+                <select asp-for="Pet.IdShelter" class="form-control"
+                        asp-items="@Model.ShelterNameSL"></select>
+                <span asp-validation-for="Pet.IdShelter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/recom/Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

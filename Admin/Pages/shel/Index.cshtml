@@ -1,0 +1,55 @@
+﻿@page
+@model petsk.Pages.shel.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Приюты</h1>
+
+@* <p>
+    <a asp-page="Create">Create New</a>
+</p> *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelter[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelter[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelter[0].AmountOfMoneyCollected)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Shelter)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AmountOfMoneyCollected)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.IdShelter">Изменить</a> |
+                   @*  <a asp-page="./Details" asp-route-id="@item.IdShelter">Детали</a> | *@
+                    <a asp-page="./Delete" asp-route-id="@item.IdShelter">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="card col-md-12">
+        <button type="button" onclick="location.href = '/shel/Create'" class="btn btn-outline-success">Добавить приют</button>
+    </div>
+</div>

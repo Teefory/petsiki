@@ -1,0 +1,82 @@
+﻿@page
+@model petsiki.Pages.recom.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Записаться на прогулку</h1>
+
+<style>
+    body {
+        background: pink;
+    }
+</style>
+@* <h4>RecordingWalk</h4> *@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @* <label asp-for="RecordingWalk.IdUserNavigation.Name" class="control-label"></label>
+                <select asp-for="RecordingWalk.IdUserNavigation.Name" class="form-control" asp-items="ViewBag.IdUser"></select> *@
+
+                <label asp-for="RecordingWalk.IdUserNavigation" class="control-label"></label>
+                <select asp-for="RecordingWalk.IdUser" class="form-control" asp-items="@Model.UserNameSL">
+                    <option value="">-- Выберите пользователя --</option>
+                </select>
+                <span asp-validation-for="RecordingWalk.IdUser" class="text-danger" />
+
+
+                @*  <label asp-for="RecordingWalk.IdUser" class="control-label"></label>
+                <input asp-for="RecordingWalk.IdUser" class="form-control" />
+                <span asp-validation-for="RecordingWalk.IdUser" class="text-danger"></span> *@
+            </div>
+            <div class="form-group">
+                @* <label asp-for="RecordingWalk.IdPet" class="control-label"></label>
+                <select asp-for="RecordingWalk.IdPet" class ="form-control" asp-items="ViewBag.IdPet"></select> *@
+
+                <label asp-for="RecordingWalk.IdPetNavigation" class="control-label"></label>
+                <select asp-for="RecordingWalk.IdPet" class="form-control" asp-items="@Model.PetNameSL">
+                    <option value="">-- Выберите питомца --</option>
+                </select>
+                <span asp-validation-for="RecordingWalk.IdPet" class="text-danger" />
+
+                @* <label asp-for="RecordingWalk.IdPet" class="control-label"></label>
+                <input asp-for="RecordingWalk.IdPet" class="form-control" />
+                <span asp-validation-for="RecordingWalk.IdPet" class="text-danger"></span> *@
+
+
+            </div>
+            <div class="form-group">
+                <label asp-for="RecordingWalk.DataR" class="control-label"></label>
+                <input asp-for="RecordingWalk.DataR" class="form-control" />
+                <span asp-validation-for="RecordingWalk.DataR" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecordingWalk.BeginWalk" class="control-label"></label>
+                <input asp-for="RecordingWalk.BeginWalk" class="form-control" />
+                <span asp-validation-for="RecordingWalk.BeginWalk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecordingWalk.EndWalk" class="control-label"></label>
+                <input asp-for="RecordingWalk.EndWalk" class="form-control" />
+                <span asp-validation-for="RecordingWalk.EndWalk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

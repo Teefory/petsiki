@@ -1,0 +1,78 @@
+﻿@page
+@model petsiki.Pages.exp.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<style>
+    body {
+        background: pink;
+    }
+</style>
+
+<div>
+    <h1 class="display-5">Информация о том, куда и на что были потраченны деньги </h1>
+</div>
+
+@* <p>
+    <a asp-page="Create">Create New</a>
+</p> *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].TypeExpense)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].AmountSpent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].IdCollectingNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].Photo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Expense)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeExpense)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AmountSpent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCollectingNavigation.DescriptionC)
+                </td>
+                <td>
+                    <img src=@Html.DisplayFor(modelItem => item.Photo) alt="Картинка" class="my-image">
+                </td>
+
+                  @* <td>
+            <a asp-page="./Edit" asp-route-id="@item.IdExpenses">Edit</a> |
+            <a asp-page="./Details" asp-route-id="@item.IdExpenses">Details</a> |
+            <a asp-page="./Delete" asp-route-id="@item.IdExpenses">Delete</a>
+            </td> *@
+            </tr>
+        }
+    </tbody>
+</table>

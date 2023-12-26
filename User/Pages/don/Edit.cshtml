@@ -1,0 +1,68 @@
+﻿@page
+@model petsiki.Pages.don.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Donation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Donation.IdDonation" />
+            <div class="form-group">
+                <label asp-for="Donation.IdDonation" class="control-label"></label>
+                <div>@Html.DisplayFor(model => model.Donation.IdDonation)</div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Donation.Data" class="control-label"></label>
+                <input asp-for="Donation.Data" class="form-control" />
+                <span asp-validation-for="Donation.Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Donation.Amount" class="control-label"></label>
+                <input asp-for="Donation.Amount" class="form-control" />
+                <span asp-validation-for="Donation.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*  <label asp-for="Donation.IdUser" class="control-label"></label> *@
+                <label asp-for="Donation.IdUserNavigation" class="control-label"></label>
+                <select asp-for="Donation.IdUser" class="form-control"
+                        asp-items="@Model.UserNameSL"></select>
+                <span asp-validation-for="Donation.IdUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @* <label asp-for="Donation.IdCollectingNavigation" class="control-label"></label>
+                <select asp-for="Donation.IdCollecting" class="form-control" asp-items="ViewBag.IdCollecting"></select>
+                <span asp-validation-for="Donation.IdCollecting" class="text-danger"></span> *@
+
+                @* <label asp-for="Donation.IdCollecting" class="control-label"></label>
+                <select asp-for="Donation.IdCollecting" class="form-control" asp-items="ViewBag.IdCollecting"></select>
+                <span asp-validation-for="Donation.IdCollecting" class="text-danger"></span> *@
+
+                @* <label asp-for="Donation.IdCollecting" class="control-label"></label> *@
+                <label asp-for="Donation.IdCollectingNavigation" class="control-label"></label>
+                <select asp-for="Donation.IdCollecting" class="form-control"
+                        asp-items="@Model.CollectingNameSL"></select>
+                <span asp-validation-for="Donation.IdCollecting" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
