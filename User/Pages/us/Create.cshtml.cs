@@ -16,6 +16,8 @@ namespace petsiki.Pages.us
     {
         private readonly petsiki.Models.PettContext _context;
 
+        public CompetitionsRole competitionsRole { get; set; } = CompetitionsRole.User;
+
         public CreateModel(petsiki.Models.PettContext context)
         {
             _context = context;
@@ -49,13 +51,15 @@ namespace petsiki.Pages.us
             User.Password = HashPasswordClass.HashPassword(User.Password);
             if (!ModelState.IsValid || _context.Users == null || User == null)
             {
-                return Page();
+                _context.Users.Add(User);
+                await _context.SaveChangesAsync();
+                //return Page();
             }
 
-            _context.Users.Add(User);
-            await _context.SaveChangesAsync();
+            //_context.Users.Add(User);
+            //await _context.SaveChangesAsync();
 
-            return RedirectToPage("/us/Create");
+            return RedirectToPage("/us/createend");
         }
     }
 }
