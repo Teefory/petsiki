@@ -12,6 +12,18 @@
 
 <h1>Регистрация</h1>
 
+
+@if (!ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
 @* <h4>User</h4> *@
 <hr />
 <div class="row">

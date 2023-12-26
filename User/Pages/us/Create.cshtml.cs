@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
+using Microsoft.EntityFrameworkCore;
 using petsiki.Models;
 
 namespace petsiki.Pages.us
@@ -51,15 +51,22 @@ namespace petsiki.Pages.us
             User.Password = HashPasswordClass.HashPassword(User.Password);
             if (!ModelState.IsValid || _context.Users == null || User == null)
             {
-                _context.Users.Add(User);
-                await _context.SaveChangesAsync();
-                //return Page();
+                return Page();
             }
 
+            var userExists = await _context.Users.AnyAsync(x => x.Login == User.Login);
+            if(userExists)
+            {
+                ModelState.AddModelError("LoginError", "Пользователь с таким логином уже существует.");
+                return Page();
+            }
+            
+            _context.Users.Add(User);
+            return RedirectToPage("/us/createend");
             //_context.Users.Add(User);
             //await _context.SaveChangesAsync();
 
-            return RedirectToPage("/us/createend");
+
         }
     }
 }

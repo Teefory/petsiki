@@ -36,14 +36,14 @@ namespace petsiki.Models
 
 
         [Required]
-        [RegularExpression(@"^[A-ZА-Я]+[a-zA-Z0-9а-яА-Я""'\s-]*$")]
+        //[RegularExpression(@"^[A-ZА-Я]+[a-zA-Z0-9а-яА-Я""'\s-]*$")]
         [StringLength(20)]
         [Display(Name = "Логин")]
         public string Login { get; set; } = null!;
 
 
         [Required]
-        [RegularExpression(@"^[A-ZА-Я]+[a-zA-Z0-9а-яА-Я""'\s-]*$")]
+        //[RegularExpression(@"^[A-ZА-Я]+[a-zA-Z0-9а-яА-Я""'\s-]*$")]
         [StringLength(32)]
         [Display(Name = "Пароль")]
         public string Password { get; set; } = null!;
