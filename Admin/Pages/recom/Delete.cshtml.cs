@@ -24,35 +24,23 @@ namespace petsk.Pages.recom
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.RecordingWalks == null)
-            {
-                return NotFound();
-            }
+            if (id == null || _context.RecordingWalks == null) return NotFound();
 
-            var recordingwalk = await _context.RecordingWalks.FirstOrDefaultAsync(m => m.IdUser == id);
+            RecordingWalk = await _context.RecordingWalks.FirstOrDefaultAsync(m => m.IdRecordingWalk == id);
 
-            if (recordingwalk == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                RecordingWalk = recordingwalk;
-            }
+            if (RecordingWalk == null) return NotFound();
             return Page();
+            
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.RecordingWalks == null)
-            {
-                return NotFound();
-            }
-            var recordingwalk = await _context.RecordingWalks.FindAsync(id);
+            if (id == null || _context.RecordingWalks == null) return NotFound();
 
-            if (recordingwalk != null)
+            RecordingWalk = await _context.RecordingWalks.FindAsync(id);
+
+            if (RecordingWalk != null)
             {
-                RecordingWalk = recordingwalk;
                 _context.RecordingWalks.Remove(RecordingWalk);
                 await _context.SaveChangesAsync();
             }

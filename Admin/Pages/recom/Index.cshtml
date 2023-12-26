@@ -58,9 +58,9 @@
             @* @Html.ActionLink("Edit", "Edit", new { id=item.IdPetNavigation }) | 
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
-                    <a asp-page="./Edit" asp-route-id="@item.IdPet">Edit</a> |
+                    <a asp-page="./Edit" asp-route-id="@item.IdRecordingWalk">Edit </a> |
                     @* <a asp-page="./Details" asp-route-id="@item.IdPet">Details</a> | *@
-                    <a asp-page="./Delete" asp-route-id="@item.IdPet">Delete</a>
+                    <a asp-page="./Delete" asp-route-id="@item.IdRecordingWalk">Delete</a>
                 </td>
             </tr>
         }
@@ -124,7 +124,7 @@
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
 
-                      <a asp-page="/pe/Edit" asp-route-id="@item.IdPet"  asp-route-date="@item.IdPet">Изменить</a> |
+                      <a asp-page="/pe/Edit" asp-route-id="@item.IdPet">Изменить</a> |
                     <a asp-page="/pe/Delete" asp-route-id="@item.IdPet">Удалить</a>
                @*  <a asp-page="/pe/Details" asp-route-id="@item.IdPet">Детали</a>  *@
                 

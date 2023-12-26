@@ -14,13 +14,33 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="RecordingWalk.IdPet" />
-            <input type="hidden" asp-for="RecordingWalk.DataR" />
+            @* <input type="hidden" asp-for="RecordingWalk.DataR" /> *@
             <div class="form-group">
-                <label asp-for="RecordingWalk.IdUser" class="control-label"></label>
+              @*   <label asp-for="RecordingWalk.IdUser" class="control-label"></label>
                 <select asp-for="RecordingWalk.IdUser" class="form-control" asp-items="ViewBag.IdUser"></select>
+                <span asp-validation-for="RecordingWalk.IdUser" class="text-danger"></span> *@
+
+                <label asp-for="RecordingWalk.IdUserNavigation" class="control-label"></label>
+                <select asp-for="RecordingWalk.IdUser" class="form-control"
+                        asp-items="@Model.UserNameSL"></select>
                 <span asp-validation-for="RecordingWalk.IdUser" class="text-danger"></span>
             </div>
             <div class="form-group">
+                @*   <label asp-for="RecordingWalk.IdUser" class="control-label"></label>
+                <select asp-for="RecordingWalk.IdUser" class="form-control" asp-items="ViewBag.IdUser"></select>
+                <span asp-validation-for="RecordingWalk.IdUser" class="text-danger"></span> *@
+
+                <label asp-for="RecordingWalk.IdPetNavigation" class="control-label"></label>
+                <select asp-for="RecordingWalk.IdPet" class="form-control"
+                        asp-items="@Model.PetNameSL"></select>
+                <span asp-validation-for="RecordingWalk.IdPet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              @*   <label asp-for="Donation.Data" class="control-label"></label>
+                <input asp-for="Donation.Data" class="form-control" />
+                <span asp-validation-for="Donation.Data" class="text-danger"></span> *@
+
+
                 <label asp-for="RecordingWalk.DataR" class="control-label"></label>
                 <input asp-for="RecordingWalk.DataR" class="form-control" />
                 <span asp-validation-for="RecordingWalk.DataR" class="text-danger"></span>

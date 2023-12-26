@@ -22,7 +22,7 @@ namespace petsk.Pages.recom
         [BindProperty]
         public RecordingWalk RecordingWalk { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id, DateOnly? date)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.RecordingWalks == null)
             {
@@ -31,9 +31,13 @@ namespace petsk.Pages.recom
 
            
             RecordingWalk = await _context.RecordingWalks
-                         .Include(c => c.IdUserNavigation).FirstOrDefaultAsync(m => m.IdPet == id);
-            var recordingwalk = await _context.RecordingWalks.FirstOrDefaultAsync(m => m.IdPet == id);
-            if (recordingwalk == null)
+                         .Include(c => c.IdUserNavigation).FirstOrDefaultAsync(m => m.IdRecordingWalk == id);
+            RecordingWalk = await _context.RecordingWalks
+                         .Include(c => c.IdPetNavigation).FirstOrDefaultAsync(m => m.IdRecordingWalk == id);
+
+
+            //var recordingwalk = await _context.RecordingWalks.FirstOrDefaultAsync(m => m.IdRecordingWalk == id);
+            if (RecordingWalk == null)
             {
                 return NotFound();
             }
@@ -41,11 +45,13 @@ namespace petsk.Pages.recom
 
 
             PopulateUsersDropDownList(_context,
+                                    RecordingWalk.IdUser);
+            PopulatePetDropDownList(_context,
                                     RecordingWalk.IdPet);
 
-            RecordingWalk = recordingwalk;
-           ViewData["IdPet"] = new SelectList(_context.Pets, "IdPet", "IdPet");
-           ViewData["IdUser"] = new SelectList(_context.Users, "IdUser", "IdUser");
+            // RecordingWalk = recordingwalk;
+            //ViewData["IdPet"] = new SelectList(_context.Pets, "IdPet", "IdPet");
+            //ViewData["IdUser"] = new SelectList(_context.Users, "IdUser", "IdUser");
             return Page();
         }
 
@@ -85,17 +91,17 @@ namespace petsk.Pages.recom
                 return NotFound();
             }
 
-            var courseToUpdate = await _context.Pets.FindAsync(id);
+            var courseToUpdate = await _context.RecordingWalks.FindAsync(id);
 
             if (courseToUpdate == null)
             {
                 return NotFound();
             }
 
-            if (await TryUpdateModelAsync<Pet>(
+            if (await TryUpdateModelAsync<RecordingWalk>(
                  courseToUpdate,
-                 "Pet",   // Prefix for form value.
-                 s => s.Nickname, s => s.DateOfBirth, s => s.DescriptionP, s => s.MedicalInformation, s => s.IdShelter))
+                 "RecordingWalk",   // Prefix for form value.
+                 s => s.IdPet, s => s.DataR, s => s.IdUser, s => s.BeginWalk, s => s.EndWalk))
             {
                 await _context.SaveChangesAsync();
                 return RedirectToPage("/recom/Index");
@@ -106,7 +112,7 @@ namespace petsk.Pages.recom
 
         private bool RecordingWalkExists(int id)
         {
-          return (_context.RecordingWalks?.Any(e => e.IdPet == id)).GetValueOrDefault();
+          return (_context.RecordingWalks?.Any(e => e.IdRecordingWalk == id)).GetValueOrDefault();
         }
     }
 }

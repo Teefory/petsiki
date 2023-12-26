@@ -7,14 +7,16 @@ namespace petsk.Models;
 
 public partial class RecordingWalk
 {
-
-    [Key]
     [Display(Name = "Питомец")]
     public int IdPet { get; set; }
-
     //[DataType(DataType.Date)]
     [Display(Name = "Дата")]
     public DateOnly DataR { get; set; }
+
+    [Key]
+    [Display(Name = "ID прогулки")]
+    public int IdRecordingWalk { get; set; }
+
 
    
 

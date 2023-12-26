@@ -59,31 +59,6 @@ namespace petsk.Pages.don
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return Page();
-            //}
-
-            //_context.Attach(Donation).State = EntityState.Modified;
-
-            //try
-            //{
-            //    await _context.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!DonationExists(Donation.IdDonation))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
-
-            //return RedirectToPage("./Index");
-
 
             if (id == null)
             {
@@ -106,12 +81,9 @@ namespace petsk.Pages.don
                 return RedirectToPage("./Index");
             }
             await _context.SaveChangesAsync();
-            //PopulateUserDropDownList(_context, courseToUpdate.IdUserNavigation);
-            //PopulateUserDropDownList(_context, courseToUpdate.IdCollectingNavigation);
+
             return RedirectToPage("./Index");
-            // Select DepartmentID if TryUpdateModelAsync fails.
-            PopulateUserDropDownList(_context, courseToUpdate.IdUserNavigation);
-            return Page();
+
         }
 
         private bool donationexists(int id)
