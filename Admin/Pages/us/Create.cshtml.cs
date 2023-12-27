@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
+using Microsoft.EntityFrameworkCore;
 using petsk.Models;
 
 namespace petsk.Pages.us
@@ -50,10 +50,18 @@ namespace petsk.Pages.us
                 return Page();
             }
 
+            var userExists = await _context.Users.AnyAsync(x => x.Login == User.Login);
+            if (userExists)
+            {
+                // Добавляем кастомное сообщение об ошибке
+                ModelState.AddModelError("", "Пользователь с таким логином уже существует.");
+                return Page();
+            }
+
             _context.Users.Add(User);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/us/CreateEnd");
         }
     }
 }

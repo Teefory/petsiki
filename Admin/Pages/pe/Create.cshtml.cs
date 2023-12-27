@@ -33,13 +33,6 @@ namespace petsk.Pages.pe
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            //if (!ModelState.IsValid || _context.Pets == null || Pet == null)
-            //{
-            //    _context.Pets.Add(Pet);
-            //    await _context.SaveChangesAsync();
-            //}
-            //// return Page();
-            //return RedirectToPage("./Index");
             var emptyPet = new Pet();
 
             if (await TryUpdateModelAsync<Pet>(
@@ -49,7 +42,7 @@ namespace petsk.Pages.pe
             //s => s.IdDonation, s => s.Data, s => s.Amount, s => s.IdUser,  s => s.IdCollecting))
             {
 
-                _context.Pets.Add(emptyPet);
+                _context.Pets.Add(emptyPet); 
                 await _context.SaveChangesAsync();
                 return RedirectToPage("/recom/Index");
             }

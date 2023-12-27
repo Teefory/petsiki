@@ -169,7 +169,7 @@ public partial class PettContext : DbContext
 
         modelBuilder.Entity<RecordingWalk>(entity =>
         {
-            entity.HasKey(e => new { e.DataR, e.IdPet }).HasName("recording_walk_pkey");
+            entity.HasKey(e => e.IdRecordingWalk).HasName("recording_walk_pkey");
 
             entity.ToTable("recording_walk");
 
@@ -178,8 +178,9 @@ public partial class PettContext : DbContext
             entity.Property(e => e.BeginWalk).HasColumnName("begin_walk");
             entity.Property(e => e.EndWalk).HasColumnName("end_walk");
             entity.Property(e => e.IdUser).HasColumnName("id_user");
+            entity.Property(e => e.IdRecordingWalk).HasColumnName("id_recording_walk");
 
-            entity.HasOne(d => d.IdPetNavigation).WithMany(p => p.RecordingWalks)
+        entity.HasOne(d => d.IdPetNavigation).WithMany(p => p.RecordingWalks)
                 .HasForeignKey(d => d.IdPet)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("recording_walk_id_pet_fkey");

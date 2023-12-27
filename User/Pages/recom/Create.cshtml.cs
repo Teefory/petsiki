@@ -23,8 +23,6 @@ namespace petsiki.Pages.recom
         {
             PopulateUsersDropDownList(_context);
             PopulatePetDropDownList(_context);
-            //    ViewData["IdPet"] = new SelectList(_context.Pets, "IdPet", "IdPet");
-            //ViewData["IdUser"] = new SelectList(_context.Users, "IdUser", "IdUser");
             return Page();
         }
 
@@ -35,26 +33,44 @@ namespace petsiki.Pages.recom
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            //if (!ModelState.IsValid || _context.RecordingWalks == null || RecordingWalk == null)
-            //  {
-            //      _context.RecordingWalks.Add(RecordingWalk);
-            //      await _context.SaveChangesAsync();
-            //      //return Page();
-            //  }
 
-            //  //_context.RecordingWalks.Add(RecordingWalk);
-            //  //await _context.SaveChangesAsync();
 
-            //  return RedirectToPage("./Index");
+            var emptyDon = RecordingWalk;
 
-            var emptyDon = new RecordingWalk();
+
+            var recordingWalks = _context.RecordingWalks.ToList();
+
+            bool isOverlap = false;
+            foreach (var record in recordingWalks)
+            {
+                if (emptyDon.IdPet != record.IdPet) continue;
+                if (emptyDon.DataR != record.DataR) continue;
+
+                bool isRecordSmaller = emptyDon.BeginWalk < record.BeginWalk;
+
+                if (isRecordSmaller)
+                {
+                    isOverlap = emptyDon.BeginWalk <= record.BeginWalk && record.EndWalk <= emptyDon.EndWalk;
+                    if (isOverlap) break;
+                }
+                isOverlap = record.BeginWalk <= emptyDon.BeginWalk && emptyDon.EndWalk <= record.EndWalk;
+                if (isOverlap) break;
+            }
+
+            if (isOverlap)
+            {
+                // Добавляем кастомное сообщение об ошибке
+                ModelState.AddModelError("", "Питомец в это время уже на прогулке");
+                PopulateUsersDropDownList(_context);
+                PopulatePetDropDownList(_context);
+                return Page();
+            }
 
 
             if (await TryUpdateModelAsync<RecordingWalk>(
                  emptyDon,
                  "recordingwalk",   // Prefix for form value.
                  s => s.IdUser, s => s.IdPet, s => s.DataR, s => s.BeginWalk, s => s.EndWalk))
-            //s => s.IdDonation, s => s.Data, s => s.Amount, s => s.IdUser,  s => s.IdCollecting))
             {
 
                 _context.RecordingWalks.Add(emptyDon);
@@ -66,12 +82,6 @@ namespace petsiki.Pages.recom
             await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
 
-            // Select DepartmentID if TryUpdateModelAsync fails.
-
-            PopulateUsersDropDownList(_context, emptyDon.IdUserNavigation);
-            PopulatePetDropDownList(_context, emptyDon.IdPetNavigation);
-
-            return Page();
 
         }
     }

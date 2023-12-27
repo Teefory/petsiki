@@ -17,6 +17,7 @@ namespace petsiki.Pages.us
         private readonly petsiki.Models.PettContext _context;
 
         public CompetitionsRole competitionsRole { get; set; } = CompetitionsRole.User;
+        public string test = "User";
 
         public CreateModel(petsiki.Models.PettContext context)
         {
@@ -55,18 +56,17 @@ namespace petsiki.Pages.us
             }
 
             var userExists = await _context.Users.AnyAsync(x => x.Login == User.Login);
-            if(userExists)
+            if (userExists)
             {
-                ModelState.AddModelError("LoginError", "Пользователь с таким логином уже существует.");
+                // Добавляем кастомное сообщение об ошибке
+                ModelState.AddModelError("", "Пользователь с таким логином уже существует.");
                 return Page();
             }
-            
+
             _context.Users.Add(User);
+            await _context.SaveChangesAsync();
+
             return RedirectToPage("/us/createend");
-            //_context.Users.Add(User);
-            //await _context.SaveChangesAsync();
-
-
         }
     }
 }
