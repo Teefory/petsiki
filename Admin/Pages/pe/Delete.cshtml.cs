@@ -10,7 +10,7 @@ using petsk.Models;
 
 namespace petsk.Pages.pe
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : PeClass
     {
         private readonly petsk.Models.PettContext _context;
 
@@ -29,15 +29,18 @@ namespace petsk.Pages.pe
                 return NotFound();
             }
 
-            var pet = await _context.Pets.FirstOrDefaultAsync(m => m.IdPet == id);
+            Pet = await _context.Pets
+           .AsNoTracking()
+           .Include(c => c.IdShelterNavigation)
+           .FirstOrDefaultAsync(m => m.IdPet== id);
 
-            if (pet == null)
+            if (Pet == null)
             {
                 return NotFound();
             }
             else
             {
-                Pet = pet;
+                Pet = Pet;
             }
             return Page();
         }
@@ -57,7 +60,7 @@ namespace petsk.Pages.pe
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/recom/Index");
         }
     }
 }

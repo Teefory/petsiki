@@ -12,7 +12,7 @@ using petsk.Pages.don;
 
 namespace petsk.Pages.don
 {
-    public class EditModel : idname
+    public class EditModel : Donclass
     {
         private readonly petsk.Models.PettContext _context;
 

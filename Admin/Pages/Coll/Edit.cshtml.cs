@@ -11,7 +11,7 @@ using petsk.Models;
 
 namespace petsk.Pages.Coll
 {
-    public class EditModel : Collec
+    public class EditModel : Collclass
     {
         private readonly petsk.Models.PettContext _context;
 

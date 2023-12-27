@@ -10,7 +10,7 @@ using petsk.Models;
 
 namespace petsk.Pages.recom
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : RecomClass
     {
         private readonly petsk.Models.PettContext _context;
 
@@ -26,7 +26,13 @@ namespace petsk.Pages.recom
         {
             if (id == null || _context.RecordingWalks == null) return NotFound();
 
-            RecordingWalk = await _context.RecordingWalks.FirstOrDefaultAsync(m => m.IdRecordingWalk == id);
+            //RecordingWalk = await _context.RecordingWalks.FirstOrDefaultAsync(m => m.IdRecordingWalk == id);
+
+            RecordingWalk = await _context.RecordingWalks
+           .AsNoTracking()
+           .Include(c => c.IdPetNavigation)
+           .Include(c => c.IdUserNavigation)
+           .FirstOrDefaultAsync(m => m.IdRecordingWalk == id);
 
             if (RecordingWalk == null) return NotFound();
             return Page();

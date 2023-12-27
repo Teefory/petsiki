@@ -10,7 +10,7 @@ using petsk.Models;
 
 namespace petsk.Pages.pe
 {
-    public class CreateModel : petidn
+    public class CreateModel : PeClass
     {
         private readonly petsk.Models.PettContext _context;
 

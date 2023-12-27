@@ -11,7 +11,7 @@ using petsk.Models;
 
 namespace petsk.Pages.pe
 {
-    public class EditModel : petidn
+    public class EditModel : PeClass
     {
         private readonly petsk.Models.PettContext _context;
 

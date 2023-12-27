@@ -10,7 +10,7 @@ using petsk.Models;
 
 namespace petsk.Pages.exp
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : ExpClass
     {
         private readonly petsk.Models.PettContext _context;
 
@@ -29,15 +29,20 @@ namespace petsk.Pages.exp
                 return NotFound();
             }
 
-            var expense = await _context.Expenses.FirstOrDefaultAsync(m => m.IdExpenses == id);
+            //var expense = await _context.Expenses.FirstOrDefaultAsync(m => m.IdExpenses == id);
 
-            if (expense == null)
+            Expense = await _context.Expenses
+           .AsNoTracking()
+           .Include(c => c.IdCollectingNavigation)
+           .FirstOrDefaultAsync(m => m.IdExpenses == id);
+
+            if (Expense == null)
             {
                 return NotFound();
             }
             else
             {
-                Expense = expense;
+                Expense = Expense;
             }
             return Page();
         }

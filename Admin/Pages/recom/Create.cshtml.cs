@@ -10,7 +10,7 @@ using petsk.Models;
 
 namespace petsk.Pages.recom
 {
-    public class CreateModel : prog
+    public class CreateModel : RecomClass
     {
         private readonly petsk.Models.PettContext _context;
 

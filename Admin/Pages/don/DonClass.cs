@@ -10,7 +10,7 @@ using petsk.Models;
 namespace petsk.Pages.don
 
 {
-    public class idname : PageModel
+    public class Donclass : PageModel
     {
 
         public SelectList UserNameSL { get; set; }
@@ -33,8 +33,8 @@ namespace petsk.Pages.don
         {
             var CollectingQuery = from n in _context.Collectings
                                   orderby n.DescriptionC
-                                  where new DateTime(n.ClosingDate.Year, n.ClosingDate.Month, n.ClosingDate.Day) >= DateTime.Today  // Sort by name.
-                                   && n.AlreadyAssembled < n.RequiredAmount
+                                  //where new DateTime(n.ClosingDate.Year, n.ClosingDate.Month, n.ClosingDate.Day) >= DateTime.Today  // Sort by name.
+                                  // && n.AlreadyAssembled < n.RequiredAmount
                                   select n;
 
             CollectingNameSL = new SelectList(CollectingQuery.AsNoTracking(),

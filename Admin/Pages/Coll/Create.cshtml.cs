@@ -10,7 +10,7 @@ using petsk.Models;
 
 namespace petsk.Pages.Coll
 {
-    public class CreateModel : Collec
+    public class CreateModel : Collclass
     {
         private readonly petsk.Models.PettContext _context;
 

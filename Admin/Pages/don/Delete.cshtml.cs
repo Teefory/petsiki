@@ -10,7 +10,7 @@ using petsk.Models;
 
 namespace petsk.Pages.don
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : Donclass
     {
         private readonly petsk.Models.PettContext _context;
 
@@ -29,15 +29,22 @@ namespace petsk.Pages.don
                 return NotFound();
             }
 
-            var donation = await _context.Donations.FirstOrDefaultAsync(m => m.IdDonation == id);
+            //var donation = await _context.Donations.FirstOrDefaultAsync(m => m.IdDonation == id);
 
-            if (donation == null)
+            Donation = await _context.Donations
+            .AsNoTracking()
+            .Include(c => c.IdCollectingNavigation)
+            .Include(c => c.IdUserNavigation)
+            .FirstOrDefaultAsync(m => m.IdDonation == id);
+
+         
+            if (Donation == null)
             {
                 return NotFound();
             }
             else
             {
-                Donation = donation;
+                Donation = Donation;
             }
             return Page();
         }
@@ -49,6 +56,8 @@ namespace petsk.Pages.don
                 return NotFound();
             }
             var donation = await _context.Donations.FindAsync(id);
+
+
 
             if (donation != null)
             {

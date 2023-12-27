@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace petsk.Pages.pe
 {
-    public class petidn:PageModel
+    public class PeClass:PageModel
     {
         public SelectList ShelterNameSL { get; set; }
         public void PopulateShelterDropDownList(PettContext _context,

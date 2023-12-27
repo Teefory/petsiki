@@ -9,7 +9,7 @@ using petsk.Models;
 
 namespace petsk.Pages.don
 {
-    public class CreateModel : idname
+    public class CreateModel : Donclass
     {
         private readonly petsk.Models.PettContext _context;
 

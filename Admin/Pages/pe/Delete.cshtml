@@ -37,16 +37,16 @@
             @Html.DisplayFor(model => model.Pet.MedicalInformation)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Pet.IdShelterNavigation)
+            @Html.DisplayNameFor(model => model.Pet.IdShelter)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Pet.IdShelterNavigation.IdShelter)
+            @Html.DisplayFor(model => model.Pet.IdShelterNavigation.Description)
         </dd>
     </dl>
 
     <form method="post">
         <input type="hidden" asp-for="Pet.IdPet" />
         <input type="submit" value="Удалить" class="btn btn-danger" /> |
-        <a asp-page="./Index">Назад</a>
+        <a asp-page="/recom/Index">Назад</a>
     </form>
 </div>

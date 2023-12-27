@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+//using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +11,7 @@ using petsk.Models;
 
 namespace petsk.Pages.Coll
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : Collclass
     {
         private readonly petsk.Models.PettContext _context;
 
@@ -29,15 +30,21 @@ namespace petsk.Pages.Coll
                 return NotFound();
             }
 
-            var collecting = await _context.Collectings.FirstOrDefaultAsync(m => m.IdCollecting == id);
+            Collecting = await _context.Collectings
+           .AsNoTracking()
+           .Include(c => c.IdPetNavigation)
+           .Include(c => c.IdUserNavigation)
+           .Include(c => c.IdShelterNavigation)
+           .FirstOrDefaultAsync(m => m.IdCollecting == id);
 
-            if (collecting == null)
+
+            if (Collecting == null)//
             {
                 return NotFound();
             }
             else
             {
-                Collecting = collecting;
+                Collecting = Collecting;//2
             }
             return Page();
         }
